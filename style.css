@@ -22,6 +22,10 @@
 
 /* general  */
 body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-primary);    
     font-size: 16px;    
     font-weight: var(--font-wt-reg);
@@ -36,7 +40,7 @@ img {
 }
 
 h1, 
-a,
+.email-output,
 label,
 button {
     font-weight: var(--font-wt-bold);
@@ -44,17 +48,6 @@ button {
 
 h1 {
     margin-bottom: 0.5em;
-}
-
-a {
-    text-decoration: none;
-    color: var(--neutral-dark);
-}
-
-a:hover,
-a:active {
-    /* added for consistency with the button hover state */
-    color: var(--primary);
 }
 
 /* main  - newsletter signup*/
@@ -213,6 +206,11 @@ button:active {
     margin-bottom: 1.5em;
 }
 
+.email-output {
+    text-decoration: none;
+    color: var(--neutral-dark);
+}
+
 .dismiss-btn {
     margin-top: 2rem; 
     margin-bottom: 2rem; 
@@ -222,11 +220,7 @@ button:active {
     width: 90%;
 }
 
-@media (min-width:500px) {
-    .signup {
-        margin-top: 3rem;
-    }  
-    
+@media (min-width:500px) {    
     .success {
         background-color: var(--neutral-dark);
     }
@@ -244,7 +238,6 @@ button:active {
     }
 
     .signup {
-        margin: 3em auto 1em auto;
         width: 90%;
         max-width: 950px ;
         display: grid;

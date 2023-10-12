@@ -36,6 +36,6 @@ function showHideSuccessMsg(email="") {
 
     if (email !== "") {
         document.querySelector(".email-output")
-        .innerHTML = `<a href="mailto:${email}">${email}</a>`
+        .innerHTML = `${email}`
     }
 }
