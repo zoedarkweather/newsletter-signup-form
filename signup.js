@@ -1,6 +1,8 @@
 const form = document.querySelector("#newsletter-signup");
 const email = document.querySelector("#email");
 const errorMsg = document.querySelector(".error-msg");
+const successMsg = document.querySelector(".success-msg")
+const emailOutput = document.querySelector(".email-output")
 const dismissBtn = document.querySelector("#dismiss-btn")
 
 email.addEventListener("focus", () => {
@@ -15,27 +17,13 @@ form.addEventListener("submit", (e) => {
         email.classList.add("error");
         errorMsg.textContent = "Valid email required";
     } else {
-        showHideSuccessMsg(email.value);
+        if (email !== "") {
+            emailOutput.innerHTML = `${email.value}`
+        }
+        successMsg.showModal();
     }
 });
 
 dismissBtn.addEventListener("click", () => {
-    showHideSuccessMsg();
+    successMsg.close();
 });
-
-function showHideSuccessMsg(email="") {
-    const successMsg = document.querySelector(".success-msg");
-    const body = document.querySelector("body")
-    const signup = document.querySelector(".signup")
-    const footer = document.querySelector("footer");
-
-    successMsg.classList.toggle("hidden");
-    body.classList.toggle("success");
-    signup.classList.toggle("hidden");
-    footer.classList.toggle("hidden");
-
-    if (email !== "") {
-        document.querySelector(".email-output")
-        .innerHTML = `${email}`
-    }
-}

@@ -27,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: var(--font-primary);    
-    font-size: 16px;    
+    font-size: 1rem;    
     font-weight: var(--font-wt-reg);
     background-color: var(--neutral-dark);
     color: var(--neutral-very-dark);
@@ -59,7 +59,7 @@ h1 {
     background-color: var(--neutral-light);
 }
 
-.signup > div {
+.column-1 {
     width: 80%;
     margin: 2rem auto;   
 }
@@ -75,7 +75,7 @@ li {
     margin-top: -15px; /* to correct for the padding aligning li w/ icons */
     padding: 20px 0px 10px 35px; /* make room for icons and align w/ icons */
     font-size: 1rem;
-    line-height: 1.2rem;     
+    line-height: 1.2;     
     background: url("./images/icon-list.svg") no-repeat left center;  
      
 }
@@ -156,9 +156,10 @@ button:active {
     background-color: var(--primary);
     box-shadow: 5px 5px 20px var(--primary);
 }
+
 /* footer  */
 .attribution {
-    font-size: 11px; 
+    font-size: 0.7rem; 
     text-align: center;
     color: var(--neutral-light);
 }
@@ -168,37 +169,29 @@ button:active {
 }
 
 /* success message  */
-.success {
-    background-color: var(--neutral-light);
-}
-
-.hidden {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    position:absolute;
-    top:0;
-    left: -1000px;
-}
-
-.hidden .dismiss-btn {
-    /* unfix the fixed position button so it will be hidden */
-    position: relative;
-}
-
 .success-msg {
-    max-width: 420px;
+    position: relative;
+    width: 100%;
     height: 100%;
-    margin: 5em auto;
-    padding: 3em;
+    padding: 3em;   
+    margin:auto;
     background-color: var(--neutral-light);
-    border-radius: 1em;
+    border: none;    
 }
 
-.success-msg p {
-    font-size: 0.9rem;
-    line-height: 1.5rem;
+.success-msg::backdrop {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.large-text {
+    font-size: 2.5rem;
+    font-weight: var(--font-wt-bold);    
+    line-height: 1.1;
+}
+
+.normal-text { 
+    line-height: 1.5;
+    margin: 1em 0;
 }
 
 .success-msg img {
@@ -207,34 +200,21 @@ button:active {
 }
 
 .email-output {
-    text-decoration: none;
     color: var(--neutral-dark);
 }
 
 .dismiss-btn {
-    margin-top: 2rem; 
-    margin-bottom: 2rem; 
-    position: fixed;
-    bottom: 0;
-    left: 5%;
+    display: block;
     width: 90%;
-}
-
-@media (min-width:500px) {    
-    .success {
-        background-color: var(--neutral-dark);
-    }
-
-    .dismiss-btn {
-        position: relative;
-        margin-bottom: 0;
-    }
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
 }
 
 @media (min-width:800px) {
     h1 {
         font-size: 2.5rem;
-        line-height: 2.5rem;
+        line-height: 2.5;
     }
 
     .signup {
@@ -247,7 +227,7 @@ button:active {
         border-radius: 1em;        
     }
 
-    .signup > div {
+    .column-1 {
         grid-row: 1;
         grid-column: 1;
     }
@@ -257,5 +237,21 @@ button:active {
         grid-column: 2;
         height: 100%;
     }
-}
 
+    .success-msg {
+        width: 450px;
+        height: 450px;          
+        border-radius: 1em;
+    } 
+
+    .success-msg::backdrop {
+        background-color:  hsl(235, 18%, 26%);
+    }    
+
+    .dismiss-btn {
+        bottom: 10%;
+        left: 10%;
+        width: 80%;
+    }
+
+}
